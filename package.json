@@ -1,6 +1,6 @@
 {
   "name": "huaz-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/cuihovah/huaz-components#readme",
   "dependencies": {
-    "element-ui": "^2.15.9",
-    "underscore": "^1.13.4"
+    "element-ui": "2.15.2",
+    "underscore": "1.8.3"
   }
 }
