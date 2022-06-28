@@ -1,0 +1,65 @@
+<template>
+  <span class="hz-dialog-button">
+    <el-button :icon="icon" :type="type" :size="size" :disabled="disabled" @click="open">{{ name }}</el-button>
+    <el-dialog
+        :show-close="true"
+        :title="title"
+        :width="width"
+        v-if="visibleDialog"
+        :append-to-body="true" 
+        :top="top"
+        :visible.sync="visibleDialog">
+        <slot></slot>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="ok" type="primary">确 定</el-button>
+        <el-button @click="cancel">取 消</el-button>
+      </div>
+    </el-dialog>
+  </span>
+</template>
+<script>
+
+export default {
+  name: 'HzDialogButton',
+  props: {
+    name: String,
+    title: String,
+    disabled: Boolean,
+    size: String,
+    type: String,
+    width: String,
+    top: String,
+    icon: String
+  },
+  data () {
+    return {
+      visibleDialog: false,
+    };
+  },
+  methods: {
+   async ok() {
+     await this.$emit('ok');
+     this.visibleDialog = false;
+   },
+   async cancel() {
+     await this.$emit('cancel');
+     this.visibleDialog = false;
+   },
+   open() {
+     this.$emit('open');
+     this.visibleDialog = true;
+   },
+  },
+};
+</script>
+
+<style lang="scss" rel="stylesheet/scss">
+  .hz-dialog-button {
+    * {
+      text-align: left;
+    }
+    .dialog-footer {
+      text-align: center;
+    }
+  }
+</style>
