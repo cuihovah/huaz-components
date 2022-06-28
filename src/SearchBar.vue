@@ -21,7 +21,7 @@
 import _ from "underscore";
 
 export default {
-  name: 'Hzhz-search-bar',
+  name: 'HzSearchBar',
   props: {
       width: Number,
       list: Array,
