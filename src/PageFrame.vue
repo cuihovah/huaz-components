@@ -13,7 +13,7 @@
 import _ from "underscore";
 
 export default {
-  name: 'Hzhz-page-frame',
+  name: 'HzPageFrame',
   props: {
     label: String,
     name: String,

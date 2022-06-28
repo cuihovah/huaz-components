@@ -19,7 +19,7 @@
 // import _ from "underscore";
 
 export default {
-  name: 'Hzhz-table-page',
+  name: 'HzTablePage',
   data () {
     return {
       total: 0,
