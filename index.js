@@ -14,8 +14,8 @@ const components = [
     TablePage,
 ];
 
-const install = function(Vue, opts = {}) {
-    components.forEach(component => {
+const install = function(Vue) {
+    components.forEach(function(component) {
         Vue.component(component.name, component);
     });
 };
@@ -26,6 +26,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-    install,
+    install: install,
 }
   
