@@ -29,7 +29,11 @@ export default {
     type: String,
     width: String,
     top: String,
-    icon: String
+    icon: String,
+    hacked: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
@@ -38,16 +42,26 @@ export default {
   },
   methods: {
    async ok() {
-     await this.$emit('ok');
-     this.visibleDialog = false;
+     await this.$emit('ok', this);
+     if (this.hacked === false) {
+      this.visibleDialog = false;
+     }
    },
    async cancel() {
-     await this.$emit('cancel');
-     this.visibleDialog = false;
+     await this.$emit('cancel', this);
+     if (this.hacked === false) {
+      this.visibleDialog = false;
+     }
    },
    open() {
-     this.$emit('open');
+     this.$emit('open', this);
      this.visibleDialog = true;
+   },
+   openDialog() {
+     this.visibleDialog = true;
+   },
+   closeDialog() {
+     this.visibleDialog = false;
    },
   },
 };
