@@ -2,6 +2,7 @@
     <el-menu
       :default-openeds="opened"
       :unique-opened="true"
+      :default-active="activeindex"
       class="el-menu-vertical-demo">
       <el-submenu v-for="(item, x) in value" :key="x" :index="item.index" :disabled="!item.enabled">
         <template slot="title">
@@ -22,6 +23,7 @@ export default {
   name: 'HzNav',
   props: {
     data: Array,
+    activeindex: String
   },
   data () {
     return {
