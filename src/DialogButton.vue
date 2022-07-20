@@ -8,6 +8,7 @@
         v-if="visibleDialog"
         :append-to-body="true" 
         :top="top"
+        :fullscreen="fullscreen"
         :visible.sync="visibleDialog">
         <slot></slot>
       <div slot="footer" class="dialog-footer">
@@ -30,6 +31,10 @@ export default {
     width: String,
     top: String,
     icon: String,
+    fullscreen: {
+      type: Boolean,
+      default: false
+    },
     hacked: {
       type: Boolean,
       default: false,
