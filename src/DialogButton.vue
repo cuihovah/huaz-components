@@ -1,7 +1,8 @@
 <template>
-  <span class="hz-dialog-button">
+  <span :class="['hz-dialog-button', class]">
     <el-button :icon="icon" :type="type" :size="size" :disabled="disabled" @click="open">{{ name }}</el-button>
     <el-dialog
+        :custom-class="CustomClass"
         :show-close="true"
         :title="title"
         :width="width"
@@ -31,6 +32,8 @@ export default {
     width: String,
     top: String,
     icon: String,
+    CustomClass: String,
+    class: String,
     fullscreen: {
       type: Boolean,
       default: false
