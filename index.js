@@ -5,6 +5,7 @@ import PageFrame from './src/PageFrame';
 import SearchBar from './src/SearchBar';
 import TablePage from './src/TablePage';
 import File from './src/File';
+import FilterTable from './src/FilterTable';
 
 const components = [
     ConfirmButton,
@@ -14,6 +15,7 @@ const components = [
     SearchBar,
     TablePage,
     File,
+    FilterTable,
 ];
 
 const install = function(Vue) {
