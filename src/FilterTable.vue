@@ -64,13 +64,11 @@
                     }
                     result = _.filter(result, x => filter(x, this.text));
                 }
-                debugger;
                 return result;
             },
         },
         watch: {
             data(v) {
-                debugger;
                 this.rawData = v;
             },
         },
