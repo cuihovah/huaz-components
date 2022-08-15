@@ -11,7 +11,7 @@
           highlight-current-row
           @row-click="click"
           :style="style">
-          <el-table-column :prop="label" :label="name"></el-table-column>
+          <slot></slot>
         </el-table>
    </div>
 </template>
@@ -27,9 +27,6 @@
                 type: String
             },
             style: {
-                type: String,
-            },
-            name: {
                 type: String,
             },
             rowHeight: {
