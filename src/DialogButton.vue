@@ -13,7 +13,7 @@
         :visible.sync="visibleDialog">
         <slot></slot>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="ok" type="primary">确 定</el-button>
+        <el-button @click="ok" type="primary">{{ confirmButtonText }}</el-button>
         <el-button @click="cancel">取 消</el-button>
       </div>
     </el-dialog>
@@ -24,6 +24,10 @@
 export default {
   name: 'HzDialogButton',
   props: {
+    confirmButtonText: {
+      type: String,
+      default: '确 定'
+    },
     name: String,
     title: String,
     disabled: Boolean,
