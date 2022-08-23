@@ -3,14 +3,16 @@
     <el-row class="search-input">
       <el-col :span="left" >
           <el-row v-for="(items, x) in list" :key="x">
-              <el-col class="col-padding" :span="items.length <= 6 ? 4 : 3" v-for="(item, x) in items" :key="x">
+              <el-col class="col-padding" :span="24 / (width / 3)" v-for="(item, x) in items" :key="x">
                   <el-input v-if="item.type === 'input' || !!item.type === false " v-model.trim="query[item.prop]" :size="item.size" :placeholder="item.name" clearable></el-input>
               </el-col>
           </el-row>
       </el-col>
+      <el-col :span="2" class="col-padding">
+        <el-button size="mini" :type="button_type" @click="search">{{ button_label }}</el-button>
+      </el-col>
       <el-col :span="right" class="col-padding" style="text-align: right;">
           <slot name="start"></slot>
-          <el-button size="mini" :type="button_type" @click="search">{{ button_label }}</el-button>
           <slot name="end"></slot>
       </el-col>
     </el-row>
@@ -45,8 +47,7 @@ export default {
         this.$set(this.query, item.prop, '');
       }
       this.left = this.width;
-      this.right = 24 - this.left;
-      
+      this.right = 24 - this.left - 2;
   },
   methods: {
     search () {
