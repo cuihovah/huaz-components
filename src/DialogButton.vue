@@ -1,7 +1,8 @@
 <template>
-  <span class="hz-dialog-button">
+  <span class="hz-dialog-button'">
     <el-button :icon="icon" :type="type" :size="size" :disabled="disabled" @click="open">{{ name }}</el-button>
     <el-dialog
+        :custom-class="CustomClass"
         :show-close="true"
         :title="title"
         :width="width"
@@ -12,7 +13,7 @@
         :visible.sync="visibleDialog">
         <slot></slot>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="ok" type="primary">确 定</el-button>
+        <el-button @click="ok" type="primary">{{ confirmButtonText }}</el-button>
         <el-button @click="cancel">取 消</el-button>
       </div>
     </el-dialog>
@@ -23,6 +24,10 @@
 export default {
   name: 'HzDialogButton',
   props: {
+    confirmButtonText: {
+      type: String,
+      default: '确 定'
+    },
     name: String,
     title: String,
     disabled: Boolean,
@@ -31,6 +36,7 @@ export default {
     width: String,
     top: String,
     icon: String,
+    CustomClass: String,
     fullscreen: {
       type: Boolean,
       default: false
