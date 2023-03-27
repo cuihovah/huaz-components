@@ -3,7 +3,7 @@
     <el-button :type="type" :size="size" @click="click">
       <slot></slot>
     </el-button>
-    <input ref="file" type="file" v-show="false" @change="change" />
+    <input ref="file" type="file" v-show="false" @change="change" @input="input" />
   </span>
 </template>
 
@@ -24,6 +24,9 @@ export default {
       event.target.value = '';
       this.$emit('opened', file);
     },
+    input() {
+      this.$emit('progress');
+    }
   }
 };
 </script>

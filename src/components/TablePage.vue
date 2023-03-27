@@ -35,10 +35,10 @@ export default {
   methods: {
     async handleSizeChange(val) {
       this.limit = val;
+      this.currentPage = 1;
       await this.$emit('search', this.limit, this.offset);
     },
     async reset(total) {
-      this.currentPage = 1;
       this.total = total;
     },
     async setData(total) {
@@ -50,6 +50,9 @@ export default {
     },
     getLimit() {
       return this.limit;
+    },
+    resetCurrentPage() {
+      this.currentPage = 1;
     }
   },
 };
